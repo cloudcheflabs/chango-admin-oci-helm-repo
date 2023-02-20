@@ -3,20 +3,20 @@ entries:
   chango-admin-oci:
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2023-02-20T02:19:29.123776501Z"
+    created: "2023-02-20T02:20:04.125701676Z"
     description: chango admin for oci
-    digest: 60cd762163ff8d69e19c54b36f5c19b0931ddd17f792b9bb327ccfed9a8e935d
+    digest: e74ae8920dea17cf3fcc395e2c7096c69ed38c6442c984385ea299025f79b5c7
     name: chango-admin-oci
     urls:
     - chango-admin-oci-v1.1.0.tgz
     version: v1.1.0
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2023-02-20T02:19:29.123424845Z"
+    created: "2023-02-20T02:20:04.125297852Z"
     description: chango admin for oci
     digest: c2544f85b47c465421023b8b6b161f44411208e96506d6572f684b8fbb6794e3
     name: chango-admin-oci
     urls:
     - chango-admin-oci-v1.0.0.tgz
     version: v1.0.0
-generated: "2023-02-20T02:19:29.12241885Z"
+generated: "2023-02-20T02:20:04.124845555Z"
