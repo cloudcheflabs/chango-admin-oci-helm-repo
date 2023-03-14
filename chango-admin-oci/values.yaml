@@ -1,0 +1,83 @@
+namespace: chango-admin-oci
+serviceAccount: chango-admin-oci
+image: cloudcheflabs/chango-admin-oci:v1.0.0
+imagePullPolicy: Always
+replicas: 1
+resources:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    cpu: 2000m
+    memory: 5Gi
+priorityClassName: ""
+annotations: null
+affinity: {}
+tolerations: {}
+nodeSelector: {}
+hostNetwork: false
+dnsPolicy: Default
+
+
+# hpa.
+hpa:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 50
+
+# ingress.
+ingress:
+  enabled: true
+  ingressClassName: nginx
+  hostName: chango-admin-oci.cloudchef-labs.com
+
+
+# cert-manager.
+certManager:
+  clusterIssue: letsencrypt-prod
+
+
+# chango admin.
+security:
+  vault:
+    token: hvs.9hLfvRHtpKjcYqh3l1OW0WwL
+
+# db connection.
+jdbc:
+  url: jdbc:mysql://mysql-service.chango-admin-oci.svc:3306/chango_admin?useSSL=false&createDatabaseIfNotExist=true
+  user: anyuser
+  pass: anypass
+
+
+# spring boot server
+server:
+  port : 8095
+
+spring:
+  profiles:
+    active: prod
+
+# hibernate.
+hibernate:
+  show_sql: false
+
+
+# spring boot management server.
+management:
+  server:
+    port: 18081
+
+# readiness probe.
+readiness:
+  initialDelaySeconds: 5
+  periodSeconds: 5
+
+# liveness probe.
+liveness:
+  initialDelaySeconds: 5
+  periodSeconds: 5
+
+# braintree.
+braintree:
+  env: live
